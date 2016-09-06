@@ -1,3 +1,15 @@
-<h1>
-  {{title}}
-</h1>
+<form>
+    <h3>Agrege un Enlace</h3>
+    <div>
+        <label>Titulo:</label>
+        <input name="titulo" #newTitulo>
+    </div>
+    <div>
+        <label>Link:</label>
+        <input name="link" #newLink>
+    </div>
+    <button (click)="agregarArticulo(newTitulo,newLink)">Ingresar Link</button>
+</form>
+<ul>
+    <li *ngFor="let name of names"> Hello {{name}}</li>
+</ul>
