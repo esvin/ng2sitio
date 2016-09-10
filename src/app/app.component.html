@@ -1,4 +1,5 @@
-<form>
+<inventory-app></inventory-app>
+<!--<form>
     <h3>Agrege un Enlace</h3>
     <div>
         <label>Titulo:</label>
@@ -10,6 +11,7 @@
     </div>
     <button (click)="agregarArticulo(newTitulo,newLink)">Ingresar Link</button>
 </form>
-<ul>
-    <li *ngFor="let name of names"> Hello {{name}}</li>
-</ul>
+<div>
+  <app-article *ngFor="let article of articles" [article]="article"></app-article>
+</div>
+-->
