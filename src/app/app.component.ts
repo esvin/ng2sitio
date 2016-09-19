@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { ArticleComponent } from './article/';
 import { Article } from './article/';
 import {InventoryAppComponent } from './inventory-app/'
+import {PruebaComponent} from './prueba/'
 
 
 @Component({
   moduleId: module.id,
   selector: 'app-root',
-  directives: [InventoryAppComponent],
+  directives: [PruebaComponent],
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css']
 })

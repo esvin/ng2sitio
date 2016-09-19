@@ -1,0 +1,69 @@
+<div *ngIf="false"></div>
+<div *ngIf="a > b"></div>
+<div *ngIf="str == 'yes'"></div>
+<div class="container" [ngSwitch]="myVar">
+  <div *ngSwitchWhen="'A'">Var is A</div>
+  <div *ngSwitchWhen="'B'">Var is B</div>
+  <div *ngSwitchWhen="'C'">Var is C</div>
+  <div *ngSwitchDefault="">Var is default</div>
+</div>
+<h4 class="ui horizontal divider header">
+  La opcion actual es: {{choice}}
+</h4>
+<div class="ui raised segment">
+  <ul [ngSwitch]="choice">
+    <li *ngSwitchWhen="1">Opcion 1</li>
+    <li *ngSwitchWhen="2">Opcion 2</li>
+    <li *ngSwitchWhen="3">Opcion 3</li>
+    <li *ngSwitchWhen="4">Opcion 4</li>
+    <li *ngSwitchWhen="2">Opcion 2, loco</li>
+    <li *ngSwitchDefault>Opcion predeterminada</li>
+  </ul>
+  <div style="margin-top:20px">
+    <button class="ui primary button" (click)="sigOpt()">
+      Siguiente Opcion
+    </button>
+  </div>
+  <div [style.background-color]="'yellow'">
+    El fondo de vikini es Amarillo.
+  </div>
+  <div [ngStyle]="{color: 'white', 'background-color': 'red'}">
+    Colorsito blanco y fondito rojo mai nigga
+  </div>
+</div>
+<div class="ui input">
+  <input type="text" name="color" value="{{color}}" #colorinput>
+  {{color}}
+</div>
+<div class="ui input">
+  <input type="text" name="fontSize" value="{{fontSize}}" #fontsizeinput>
+</div>
+<div>
+  <span [ngStyle]="{color:'red'}" [style.font-size.px]="fontSize">Texto Rojito</span>
+</div>
+<h4 class="ui horizontal divider header">Style desde una variable</h4>
+<div [style.background-color]="colorinput.value" style="color:white;">
+  Fondo {{colorinput.value}}
+</div>
+<div [ngClass]="{bordered:false}">Esto no va estar bordeado</div>
+<div [ngClass]="{bordered:true}">Esto va estar bordeado</div>
+<div [ngClass]="{bordered:isBordered}">
+  Usando un objeto para el borde. {{isBordered?"ON":"OFF"}}
+</div>
+<div [ngClass]="classesObj">
+  Utilizando el objeto de para enviar info {{classesObj.bordered?"ON":"OFF"}}
+</div>
+
+<div class="ui raised segment">
+  <h2 class="ui header"> Prueba Form:</h2>
+  <form [ngFormModel]="myForm" (ngSubmit)="onSubmit(myForm.value)" class="ui form">
+    <div class="field" [class.error]="!sku.valid && sku.touched">
+      <label for="skuInput">SKU</label>
+      <input type="text" id="skuInput" placeholder="SKU" [ngFormControl]="sku">
+      <div class="ui error message" *ngIf="!sku.valid" >El campo es invalido</div>
+      <div *ngIf="sku.hasError('myValidator')">El campo debe empezar con 123</div>
+      <div *ngIf="!myForm.valid">El formulario no es valido</div>
+    </div>
+    <button type="submit" class="ui button"> Enviar</button>
+  </form>
+</div>
